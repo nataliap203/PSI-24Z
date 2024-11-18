@@ -36,6 +36,25 @@ W miejsce `<host_ip>` i `<port>` wpisać można adres IP i port serwera, na któ
 ./C/Client/build.sh
 ./C/Client/run.sh <host_ip> <port>
 ```
+## Cleanup
+Aby wyczyścić poprzednio uruchomione kontenery należy wykonać skrypt `cleanup.sh`
+
+#### Serwer Python
+```
+./Python/Server/cleanup.sh
+```
+#### Klient Python
+```
+./Python/Client/cleanup.sh
+```
+#### Serwer C
+```
+./C/Server/cleanup.sh
+```
+#### Klient C
+```
+./C/Client/cleanup.sh
+```
 
 ## Autorzy
 - Krzysztof Gólcz
