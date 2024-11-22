@@ -23,6 +23,7 @@ def parse_args():
         default=1.0,
         help="Timeout for ACK (default 1.0 second)",
     )
+
     return parser.parse_args()
 
 
@@ -58,9 +59,13 @@ def main():
         while work():
             if ack_recv:
                 datagram = generate_datagram(no, bufsize, seq_bit)
-
+            print("\n")
             print("-" * 50)
-            print(f"Sending \"{datagram.rstrip(b"\0")}\" to server {host}:{port}")
+            print(
+                f"Sending datagram #{no} (Seq: {seq_bit}) to server {host}:{port}\n"
+                f"Datagram: {datagram.rstrip(b"\0")}\n",
+                sep="",
+            )
 
             s.sendto(datagram, (host, port))
 
@@ -70,27 +75,30 @@ def main():
 
                 if response == f"ACK {seq_bit}":
                     print(
-                        f"Received ACK for \"{datagram.rstrip(b"\0")}\" from server {server}"
+                        f"ACK received: Datagram #{no} acknowledged by server {server}"
                     )
+
                     seq_bit = 1 - seq_bit
                     no += 1
                     ack_recv = True
                 else:
                     print(
-                        f"Received incorrect ACK for \"{datagram.rstrip(b"\0")}\" from server {server}",
-                        f"Expected {seq_bit}, received {not seq_bit}",
+                        f"Incorrect ACK received from server {server}\n",
+                        f"Expected seq bit {seq_bit},but received {int(not seq_bit)}\n",
                         "Retrying...",
+                        sep="",
                     )
                     ack_recv = False
 
             except TimeoutError:
                 print(
-                    f"No ACK received for \"{datagram.rstrip(b"\0")}\"",
+                    f"Timeout: No ACK received for datagram #{no}\n",
                     "Retrying...",
+                    sep="",
                 )
                 ack_recv = False
 
-            print("-" * 50, "\n")
+            print("-" * 50)
 
             time.sleep(1)
 
