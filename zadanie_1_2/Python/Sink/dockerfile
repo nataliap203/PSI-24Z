@@ -1,0 +1,3 @@
+FROM python:3
+ADD udp_sink.py /
+ENTRYPOINT [ "python", "./udp_sink.py" ]
