@@ -17,7 +17,7 @@ W miejsce `<host_ip>` i `<port>` wpisać można adres IP i port na którym ma si
 ```
 
 ### Klient Python
-W miejsce `<host_ip>` i `<port>` wpisać można adres IP i port serwera, na który klient będzie przesyłał dane. W przypadku pominięcia tych argumentów użyte zostaną wartości domyślne: IP 172.21.33.2 i port 8000.
+W miejsce `<host_ip>` i `<port>` wpisać można adres IP i port serwera, na który klient będzie przesyłał dane. W przypadku pominięcia tych argumentów użyte zostaną wartości domyślne: IP 172.21.33.31 i port 8000.
 ```
 ./Source/build.sh
 ./Source/run.sh <host_ip> <port>
