@@ -4,7 +4,7 @@ import time
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description="UDP Server")
+    parser = argparse.ArgumentParser(description="UDP Source")
     parser.add_argument(
         "--host",
         type=str,
