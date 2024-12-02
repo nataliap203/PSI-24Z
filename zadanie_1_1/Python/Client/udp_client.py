@@ -5,7 +5,7 @@ BUFSIZE = 65535
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description="UDP Server")
+    parser = argparse.ArgumentParser(description="UDP Client")
     parser.add_argument(
         "--host",
         type=str,

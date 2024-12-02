@@ -3,7 +3,7 @@ import argparse
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description="UDP Server")
+    parser = argparse.ArgumentParser(description="UDP Sink")
     parser.add_argument(
         "--host",
         type=str,
